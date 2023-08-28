@@ -1,3 +1,10 @@
+import Hero from "./components/Hero";
+
 export default function Home() {
-    return <h1 className="dark:text-red-500">Home</h1>;
+    return (
+        <main className="max-w-3xl mx-auto mt-3 py-4 px-3 sm:px-1">
+            <Hero />
+            <h1>Recent Blogs</h1>
+        </main>
+    );
 }
