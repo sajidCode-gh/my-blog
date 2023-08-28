@@ -5,8 +5,8 @@ import Link from "next/link";
 
 function Header() {
     return (
-        <header className="container mx-auto flex justify-between p-5">
-            <nav className="flex gap-8 items-center">
+        <header className="container mx-auto flex justify-between py-5 px-3">
+            <nav className="flex gap-4 sm:gap-8 items-center">
                 <Link href="/">
                     <Image
                         src="/icons/home.svg"
@@ -24,7 +24,7 @@ function Header() {
                     />
                 </button>
             </nav>
-            <ul className="flex gap-8 ">
+            <ul className="flex gap-4 sm:gap-8 ">
                 <li>
                     <Link
                         href="mailto:muhammadsajidkhan616@gmail.com"
