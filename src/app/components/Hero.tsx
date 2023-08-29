@@ -5,12 +5,10 @@ function Hero() {
     return (
         <section className="sm:flex items-center justify-between">
             <div className="flex-1 w-70">
-                <h1 className="text-3xl sm:text-4xl text-white">
+                <h1 className="sm:text-4xl font-semibold text-orange-200">
                     Muhammad Sajid
                 </h1>
-                <h2 className="text-xl tracking-wide mb-4">
-                    Software Developer
-                </h2>
+                <h2 className="tracking-wide mb-4">Software Developer</h2>
                 <p>
                     Hi👋, welcome to my blog, Here I share my content related to
                     programming, tech, my learning experience and general
@@ -19,8 +17,11 @@ function Hero() {
                     and add some more text here maybe one mor eline abut I
                     diont' ahv eany idea how logntg woudl it get.
                 </p>
-                <Link href="https://sajidcode-gh.github.io/sajid-portfolio/">
-                    My Portfolio
+                <Link
+                    className="text-orange-200 inline-block mt-4"
+                    href="https://sajidcode-gh.github.io/sajid-portfolio/"
+                >
+                    My Portfolio 🗃️
                 </Link>
             </div>
             <div className="sm:block hidden w-30">

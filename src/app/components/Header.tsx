@@ -16,14 +16,7 @@ function Header() {
                             height="25"
                         />
                     </Link>
-                    <button>
-                        <Image
-                            src="/icons/sun.svg"
-                            alt="dark/light icon"
-                            width="25"
-                            height="25"
-                        />
-                    </button>
+                    {/* Will add filters button here */}
                 </nav>
                 <ul className="flex gap-4 sm:gap-8 ">
                     <li>

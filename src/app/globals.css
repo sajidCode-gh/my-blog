@@ -4,12 +4,29 @@
 
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: rgb(34 36 34);
+        background-color: rgb(28 28 28);
         color: #e1e1e1;
     }
 }
 
 body {
-    background-color: rgb(34 36 34);
+    background-color: rgb(28 28 28);
     color: #e1e1e1;
+}
+
+h1 {
+    font-size: 2.3rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.4rem;
+}
+
+h2 {
+    font-size: 1.6rem;
+}
+
+p {
+    font-size: 1.1rem;
 }
