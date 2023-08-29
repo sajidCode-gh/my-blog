@@ -10,12 +10,11 @@ function Hero() {
                 </h1>
                 <h2 className="tracking-wide mb-4">Software Developer</h2>
                 <p>
-                    Hi👋, welcome to my blog, Here I share my content related to
+                    Hi👋, welcome to my blog, Here I share content related to
                     programming, tech, my learning experience and general
-                    struggles as a developer. I love to connect, build and
-                    explore new ideas, maybay I'll extend thsi intor a bit more,
-                    and add some more text here maybe one mor eline abut I
-                    diont' ahv eany idea how logntg woudl it get.
+                    struggles as a developer. Feel free to contact me if you
+                    want to collaborate, have any question about any blog or
+                    want to discuss any ideas.
                 </p>
                 <Link
                     className="text-orange-200 inline-block mt-4"
