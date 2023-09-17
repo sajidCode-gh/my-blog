@@ -22,7 +22,7 @@ async function BlogList(props: { limit: number }) {
                             key={meta.title}
                             className="mt-4 bg-white p-2 rounded-md bg-opacity-20 hover:bg-opacity-30"
                         >
-                            <Link className="" href={`/blog/${meta.title}`}>
+                            <Link className="" href={`/blogs/${meta.title}`}>
                                 <h3>{meta.title}</h3>
                                 <small className="text-zinc-200 ">
                                     📅 {meta.date}
