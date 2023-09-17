@@ -19,6 +19,7 @@ function Hero() {
                 <Link
                     className="text-orange-200 inline-block mt-4"
                     href="https://sajidcode-gh.github.io/sajid-portfolio/"
+                    target="_blank"
                 >
                     My Portfolio 🗃️
                 </Link>
