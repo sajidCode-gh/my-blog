@@ -1,11 +1,15 @@
 type Meta = {
-    id: string;
-    title: string | undefined;
-    date: string | undefined;
-    tags: string[] | undefined;
+    title: string;
+    date: string;
+    tags: string[];
+};
+
+type Content = {
+    content: string;
 };
 
 type BlogPost = {
+    id: string;
     meta: Meta;
-    content: ReactElement<any, string | JSXElementConstructor<any>>;
+    content: Content;
 };
