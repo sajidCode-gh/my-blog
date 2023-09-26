@@ -1,50 +1,45 @@
-// import MdxContent from "@/app/components/MdxContent";
-// import {
-//     getPostByFileName,
-//     getPostByName,
-//     getPostsMeta,
-// } from "@/app/utils/get-posts";
+import MdxContent from "@/app/components/MdxContent";
+import { getPostByName } from "@/utils/postByName";
+import { getPosts } from "@/utils/posts";
 
-// type props = {
-//     params: {
-//         postId: string;
-//     };
-// };
+type props = {
+    params: {
+        postId: string;
+    };
+};
 
-// export const revalidate = 0;
+export const revalidate = 0;
 
-// // export async function generateStaticParams() {
-// //     const posts = await getPostsMeta();
+export async function generateStaticParams() {
+    const posts = await getPosts();
 
-// //     if (!posts) {
-// //         [];
-// //     }
-// //     return posts.map((post) => {
-// //         postId: post.id;
-// //     });
-// // }
+    if (!posts) {
+        [];
+    }
+    return posts.map((post) => {
+        postId: post.id;
+    });
+}
 
-// // export async function generateMetadata({ params }: props) {
-// //     const post = await getPostByFileName(`${params.postId}.mdx`);
+export async function generateMetadata({ params }: props) {
+    const post = await getPostByName(`${params.postId}.mdx`);
+    if (!post)
+        return {
+            title: "Post Not Found",
+        };
 
-// //     if (!post) {
-// //         return {
-// //             title: "Post Not Found",
-// //         };
-// //     }
+    return {
+        title: post.meta.title,
+    };
+}
 
-// //     return {
-// //         title: post.meta.title,
-// //     };
-// // }
+async function Blog({ params: { postId } }: props) {
+    const post = await getPostByName(`${postId}.mdx`);
 
-// async function Blog({ params: { postId } }: props) {
-//     const post = await getPostByName(`${postId}`);
-//     console.log(post);
-//     // if (!post) {
-//     //     return "data-not-found";
-//     // }
-//     // return <MdxContent postData={post} />;
-// }
+    if (!post) {
+        return "data-not-found";
+    }
+    return <MdxContent postData={post} />;
+}
 
-// export default Blog;
+export default Blog;
