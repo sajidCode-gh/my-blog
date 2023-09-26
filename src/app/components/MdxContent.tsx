@@ -12,10 +12,7 @@ async function MdxContent({ postData }: any) {
             <h1>{meta.title}</h1>
             <p>{meta.date}</p>
             <article className="prose prose-sm md:prose-base lg:prose-lg prose-slate !prose-invert mx-auto">
-                <Suspense fallback={<>Loading....</>}>
-                    <MDXRemote source={content} />
-                    {content}
-                </Suspense>
+                <MDXRemote source={content} />
             </article>
         </>
     );
