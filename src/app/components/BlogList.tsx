@@ -1,9 +1,9 @@
-import { getPosts } from "@/utils/posts";
+import { getPostsMeta } from "@/utils/posts";
 import Link from "next/link";
 
 async function BlogList(props: { limit: number }) {
     const { limit } = props;
-    const posts = await getPosts();
+    const posts = await getPostsMeta();
 
     if (!posts) {
         return (
@@ -14,20 +14,20 @@ async function BlogList(props: { limit: number }) {
     }
     return (
         <section className="mt-6">
-            {posts.map((post, index) => {
+            {posts.map((meta, index) => {
                 if (index <= limit) {
                     return (
                         <div
-                            key={post.id}
+                            key={meta.title}
                             className="mt-4 bg-white p-2 rounded-md bg-opacity-20 hover:bg-opacity-30"
                         >
-                            <Link className="" href={`/blogs/${post.id}`}>
-                                <h3>{post.meta.title}</h3>
+                            <Link className="" href={`/blogs/${meta.id}`}>
+                                <h3>{meta.title}</h3>
                                 <small className="text-zinc-200 ">
-                                    📅 {post.meta.date}
+                                    📅 {meta.date}
                                 </small>
                                 <div className="mt-1 flex gap-3">
-                                    {post.meta.tags?.map((tag) => (
+                                    {meta.tags?.map((tag) => (
                                         <span
                                             key={tag}
                                             className="text-orange-200"

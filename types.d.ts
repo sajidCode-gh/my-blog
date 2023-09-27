@@ -1,15 +1,15 @@
 type Meta = {
     title: string;
+    description: string;
     date: string;
     tags: string[];
 };
 
-type Content = {
-    content: string;
+type postContent = {
+    meta: Meta;
+    content: ReactElement<any, string | JSXElementConstructor<any>>;
 };
 
-type BlogPost = {
+interface BlogPost extends postContent {
     id: string;
-    meta: Meta;
-    content: Content;
-};
+}

@@ -1,10 +1,9 @@
-import { MDXRemote } from "next-mdx-remote/rsc";
 import { Suspense } from "react";
 
 type MdxContentProps = {
     postData: BlogPost;
 };
-async function MdxContent({ postData }: any) {
+async function MdxContent({ postData }: MdxContentProps) {
     const { meta, content } = postData;
 
     return (
@@ -12,7 +11,7 @@ async function MdxContent({ postData }: any) {
             <h1>{meta.title}</h1>
             <p>{meta.date}</p>
             <article className="prose prose-sm md:prose-base lg:prose-lg prose-slate !prose-invert mx-auto">
-                <MDXRemote source={content} />
+                {content}
             </article>
         </>
     );

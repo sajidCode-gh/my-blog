@@ -1,36 +1,45 @@
-import { Dirent } from "fs";
 import { getPostByName } from "./postByName";
 
-const fs = require("fs").promises;
-const path = require("path");
+type Filetree = {
+    tree: [
+        {
+            path: string;
+        }
+    ];
+};
 
-const directoryPath = "./POSTS";
+export const getPostsMeta = async () => {
+    const res = await fetch(
+        "https://api.github.com/repos/sajidCode-gh/get-posts/git/trees/main?recursive=1",
+        {
+            headers: {
+                Accept: "application/vnd.github+json",
+                Authorization: `Bearer ${process.env.GH_TOKEN}`,
+                "X-GitHub-Api-Version": "2022-11-28",
+            },
+        }
+    );
 
-async function getFiles() {
-    try {
-        const files = await fs.readdir(directoryPath);
-        const mdxFiles = files.filter(
-            (file: string) => path.extname(file) === ".mdx"
-        );
+    if (!res.ok) return undefined;
 
-        return mdxFiles;
-    } catch (error) {
-        console.log("faild to read files in a directory: ", error);
+    const repoFiletree: Filetree = await res.json();
+
+    const filesArray = repoFiletree.tree
+        .map((obj) => obj.path)
+        .filter((path) => path.endsWith(".mdx"));
+
+    const posts = [];
+
+    for (const file of filesArray) {
+        const post = await getPostByName(file);
+        if (post) {
+            const { meta } = post;
+            const fileName = file.replace(".mdx", "");
+            posts.push({ id: fileName, ...meta });
+        }
     }
-}
 
-export const getPosts = async (): Promise<BlogPost[]> => {
-    const files = await getFiles();
+    return posts;
 
-    const postPromises = [];
-
-    for (const file of files) {
-        postPromises.push(getPostByName(file));
-    }
-
-    const posts = await Promise.all(postPromises);
-
-    const validPosts = posts.filter((post) => post != undefined) as BlogPost[];
-
-    return validPosts;
+    // return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
 };

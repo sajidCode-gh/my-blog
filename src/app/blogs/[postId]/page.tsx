@@ -1,6 +1,6 @@
 import MdxContent from "@/app/components/MdxContent";
 import { getPostByName } from "@/utils/postByName";
-import { getPosts } from "@/utils/posts";
+import { getPostsMeta } from "@/utils/posts";
 
 type props = {
     params: {
@@ -11,10 +11,10 @@ type props = {
 export const revalidate = 0;
 
 export async function generateStaticParams() {
-    const posts = await getPosts();
+    const posts = await getPostsMeta();
 
     if (!posts) {
-        [];
+        return [];
     }
     return posts.map((post) => {
         postId: post.id;

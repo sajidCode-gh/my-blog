@@ -1,56 +1,51 @@
-import { readFile } from "fs";
-const matter = require("gray-matter");
-import path from "path";
+import { compileMDX } from "next-mdx-remote/rsc";
 
-function processMdx(mdxContent: string): {
-    meta: BlogPost["meta"];
-    content: BlogPost["content"];
-} {
-    try {
-        const { data: frontMatter, content, isEmpty } = matter(mdxContent);
+async function processMdx(rawContent: string): Promise<postContent> {
+    const { frontmatter: meta, content } = await compileMDX<Meta>({
+        source: rawContent,
+        components: {},
+        options: {
+            parseFrontmatter: true,
+            mdxOptions: {
+                rehypePlugins: [
+                    //     rehypeHighlight,
+                    // rehypeSlug,
+                    // [rehypeAutolinkHeadings, {
+                    //     behavior: 'wrap'
+                    // }],
+                ],
+            },
+        },
+    });
 
-        if (isEmpty) {
-            console.log("The mdx file is empty or content is found");
-        }
-
-        return { meta: frontMatter, content };
-    } catch (error) {
-        console.error("Error processing MDX:", error);
-        return {
-            meta: { title: "", date: "", tags: [] },
-            content: { content: "Nill" },
-        }; // Provide a default value
-    }
+    return { meta, content };
 }
-
-const directoryPath = "./POSTS";
 
 export const getPostByName = async (
     fileName: string
 ): Promise<BlogPost | undefined> => {
-    const filePath = path.join(directoryPath, fileName);
-
     try {
-        const fileContent = await readFileAsync(filePath);
-        const { meta, content } = await processMdx(fileContent);
+        const res = await fetch(
+            `https://raw.githubusercontent.com/sajidCode-gh/get-posts/main/${fileName}`,
+            {
+                headers: {
+                    Accept: "application/vnd.github+json",
+                    Authorization: `Bearer ${process.env.GH_TOKEN}`,
+                    "X-GitHub-Api-Version": "2022-11-28",
+                },
+            }
+        );
+
+        if (!res.ok) return undefined;
+
+        const rawContent = await res.text();
+
+        const { meta, content } = await processMdx(rawContent);
         const id = fileName.replace(".mdx", "");
 
-        // console.log({ id, meta, content });
         return { id, meta, content };
     } catch (error) {
         console.log("Error while reading file: ", error);
         return undefined;
     }
-};
-
-const readFileAsync = (fildPath: string): Promise<string> => {
-    return new Promise((resolve, reject) => {
-        readFile(fildPath, "utf8", (err, data) => {
-            if (err) {
-                reject(err);
-            } else {
-                resolve(data);
-            }
-        });
-    });
 };
