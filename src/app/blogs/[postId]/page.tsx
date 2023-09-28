@@ -8,7 +8,7 @@ type props = {
     };
 };
 
-export const revalidate = 0;
+// export const revalidate = 2;
 
 export async function generateStaticParams() {
     const posts = await getPostsMeta();

@@ -39,7 +39,5 @@ export const getPostsMeta = async () => {
         }
     }
 
-    return posts;
-
-    // return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
+    return posts.sort((a, b) => (new Date(a.date) < new Date(b.date) ? 1 : -1));
 };
