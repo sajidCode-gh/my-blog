@@ -15,14 +15,15 @@ async function BlogList(props: { limit: number }) {
     return (
         <section className="mt-6">
             {posts.map((meta, index) => {
-                if (index <= limit) {
+                if (index < limit) {
                     return (
                         <div
-                            key={meta.title}
+                            key={meta.id}
                             className="mt-4 bg-white p-2 rounded-md bg-opacity-20 hover:bg-opacity-30"
                         >
                             <Link className="" href={`/blogs/${meta.id}`}>
                                 <h3>{meta.title}</h3>
+                                <p>{meta.description}</p>
                                 <small className="text-zinc-200 ">
                                     📅 {meta.date}
                                 </small>

@@ -1,4 +1,7 @@
 import { compileMDX } from "next-mdx-remote/rsc";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeHighlight from "rehype-highlight";
+import rehypeSlug from "rehype-slug";
 
 async function processMdx(rawContent: string): Promise<postContent> {
     const { frontmatter: meta, content } = await compileMDX<Meta>({
@@ -8,11 +11,14 @@ async function processMdx(rawContent: string): Promise<postContent> {
             parseFrontmatter: true,
             mdxOptions: {
                 rehypePlugins: [
-                    //     rehypeHighlight,
-                    // rehypeSlug,
-                    // [rehypeAutolinkHeadings, {
-                    //     behavior: 'wrap'
-                    // }],
+                    rehypeSlug,
+                    rehypeHighlight,
+                    [
+                        rehypeAutolinkHeadings,
+                        {
+                            behavior: "wrap",
+                        },
+                    ],
                 ],
             },
         },

@@ -1,6 +1,7 @@
 import MdxContent from "@/app/components/MdxContent";
 import { getPostByName } from "@/utils/postByName";
 import { getPostsMeta } from "@/utils/posts";
+import "highlight.js/styles/a11y-dark.css";
 
 type props = {
     params: {
