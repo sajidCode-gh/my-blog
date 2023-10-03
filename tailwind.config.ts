@@ -8,13 +8,15 @@ const config: Config = {
     ],
     darkMode: ["class"],
     theme: {
-        extend: {
-            backgroundImage: {
-                "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-                "gradient-conic":
-                    "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-            },
+        colors: {
+            one: "rgb(249, 117, 131);",
+            two: "rgb(255 241 242)",
+            three: "rgb(62 71 84)",
+            four: "rgba(255,241,242,.8)",
+            "side-one": "rgb(249, 117, 131)",
+            "side-two": "rgb(253 164 175)",
         },
+        extend: {},
     },
     plugins: [require("@tailwindcss/typography")],
 };
