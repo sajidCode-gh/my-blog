@@ -13,7 +13,7 @@ const config: Config = {
             two: "rgb(255 241 242)",
             three: "rgb(62 71 84)",
             four: "rgba(255,241,242,.8)",
-            "side-one": "rgb(249, 117, 131)",
+            "side-one": "rgb(253 164 175);",
             "side-two": "rgb(253 164 175)",
         },
         extend: {},
