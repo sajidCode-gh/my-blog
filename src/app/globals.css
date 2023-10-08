@@ -9,6 +9,10 @@
     }
 }
 
+body {
+    padding-top: 2rem;
+}
+
 html {
     scroll-padding-top: 3.2rem;
 }

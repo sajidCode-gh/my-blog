@@ -9,11 +9,12 @@ const config: Config = {
     darkMode: ["class"],
     theme: {
         colors: {
-            one: "rgb(249, 117, 131);",
+            one: "rgb(23 25 29)",
             two: "rgb(255 241 242)",
             three: "rgb(62 71 84)",
+            "three-hover": "#3b3f49",
             four: "rgba(255,241,242,.8)",
-            "side-one": "rgb(253 164 175);",
+            "side-one": "rgb(253 164 175)",
             "side-two": "rgb(253 164 175)",
         },
         extend: {},
