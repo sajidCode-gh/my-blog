@@ -6,7 +6,7 @@ async function RecentBlogs() {
         <>
             <BlogList limit={10} />
             <Link
-                className="text-center block mt-4 hover:border rounded-md py-1"
+                className="text-center block mt-4 mx-auto max-w-max border border-three hover:border-two px-2 rounded-md py-1"
                 href="/blogs"
             >
                 View All Blogs
