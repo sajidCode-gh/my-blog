@@ -1,6 +1,8 @@
 import { getPostsMeta } from "@/utils/posts";
 import Link from "next/link";
 
+export const revalidate = 3600;
+
 async function BlogList(props: { limit: number }) {
     const { limit } = props;
     const posts = await getPostsMeta();

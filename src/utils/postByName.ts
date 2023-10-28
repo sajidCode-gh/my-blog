@@ -12,7 +12,7 @@ async function processMdx(rawContent: string): Promise<postContent> {
             mdxOptions: {
                 rehypePlugins: [
                     rehypeSlug,
-                    rehypeHighlight,
+                    rehypeHighlight as any,
                     [
                         rehypeAutolinkHeadings,
                         {

@@ -3,13 +3,13 @@ import { getPostByName } from "@/utils/postByName";
 import { getPostsMeta } from "@/utils/posts";
 import "highlight.js/styles/github-dark-dimmed.css";
 
+export const revalidate = 3600;
+
 type props = {
     params: {
         postId: string;
     };
 };
-
-// export const revalidate = 2;
 
 export async function generateStaticParams() {
     const posts = await getPostsMeta();

@@ -1,5 +1,7 @@
 import BlogList from "../components/BlogList";
 
+export const revalidate = 3600;
+
 function blogs() {
     return (
         <section>
