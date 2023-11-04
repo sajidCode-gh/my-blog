@@ -1,10 +1,12 @@
 import { getPostsMeta } from "@/utils/posts";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 
 export const revalidate = 3600;
 
 async function BlogList(props: { limit: number }) {
     const { limit } = props;
+
     const posts = await getPostsMeta();
 
     if (!posts) {
@@ -15,7 +17,7 @@ async function BlogList(props: { limit: number }) {
         );
     }
     return (
-        <section className="mt-6 flex flex-col gap-6">
+        <section className=" flex flex-col gap-6">
             {posts.map((meta, index) => {
                 if (index < limit) {
                     return (
@@ -41,9 +43,9 @@ async function BlogList(props: { limit: number }) {
                                         viewBox="0 0 24 24"
                                         fill="none"
                                         stroke="currentColor"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
                                         className="opacity-50 text-two h-4 w-4 self-baseline"
                                         aria-hidden="true"
                                     >

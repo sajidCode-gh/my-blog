@@ -17,9 +17,9 @@ async function MdxContent({ postData }: MdxContentProps) {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     className="opacity-50 text-two h-4 w-4 self-baseline"
                     aria-hidden="true"
                 >
@@ -37,6 +37,7 @@ async function MdxContent({ postData }: MdxContentProps) {
                 </svg>
                 {meta.date}
             </small>
+            <div className="w-full h-0.5 bg-two opacity-30 mt-2 rounded-sm"></div>
             <article className="my-4 prose prose-sm md:prose-base lg:prose-lg prose-zinc !prose-invert mx-auto">
                 {content}
             </article>

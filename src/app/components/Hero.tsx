@@ -3,7 +3,7 @@ import Link from "next/link";
 
 function Hero() {
     return (
-        <section className="sm:flex items-center justify-between">
+        <section className="sm:flex items-center mb-3 justify-between">
             <div className="flex-1 w-70">
                 <h1 className="sm:text-4xl font-semibold text-orange-200">
                     Muhammad Sajid
@@ -36,11 +36,11 @@ function Hero() {
                         stroke="#e6e8f7e8"
                         className="group-hover:fill-side-one"
                     >
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                         <g
                             id="SVGRepo_tracerCarrier"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                         ></g>
                         <g id="SVGRepo_iconCarrier">
                             {" "}
@@ -60,14 +60,14 @@ function Hero() {
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                         stroke="#000000"
-                        stroke-width="0.00024000000000000003"
+                        strokeWidth="0.00024000000000000003"
                         className="group-hover:text-side-one transition-transform group-hover:translate-x-2"
                     >
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                         <g
                             id="SVGRepo_tracerCarrier"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                         ></g>
                         <g id="SVGRepo_iconCarrier">
                             {" "}
